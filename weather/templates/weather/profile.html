@@ -1,0 +1,17 @@
+{% extends 'weather/base.html' %}
+{% load static %}
+
+{% block content %}
+<a class="box" href="/cities">
+    <h1 class="title is-5">🔙 cities forecast</h1>
+</a>
+<div class="box">
+    <h1 class="box title is-4">{{ username }}'s collection:</h1>
+    {% for city in cities %}
+    <a class="subtitle is-4" href="/cities/{{ city.id }}">
+    <h3>{{ city.city_name }}</h3>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

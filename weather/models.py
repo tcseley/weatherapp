@@ -39,6 +39,7 @@ class City(models.Model):
     zip_code = models.IntegerField(default=0)
     country_id = models.CharField(max_length=25)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    weatherdailies = models.ManyToManyField(WeatherDaily)
 
     def __str__(self):
         return self.city_name

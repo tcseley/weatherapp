@@ -1,0 +1,18 @@
+{% extends 'weather/base.html' %}
+{% block content %}
+
+<h1>Weather by Day List</h1>
+
+{% for weatherdaily in weatherdailies %}
+    <div>
+        <a href="{% url 'weatherdaily_show' weatherdaily.id %}">
+            <div class="card-content">
+                <span>{{ weatherdaily.city_id }}</span>
+                <p>Min. Temp: {{ weatherdaily.min_temp }}</p>
+                <p>Max. Temp: {{ weatherdaily.max_temp }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
+{% endblock %}

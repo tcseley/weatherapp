@@ -13,6 +13,12 @@
         <p> Zip Code: {{ city.zip_code }}</p>
         <p> Country: {{ city.country_id}}</p>
 
+        {% for weatherdaily in cities.weatherdailies.all %}
+        <div>{{weatherdaily.city_id}}</div>
+        {% empty %}
+        <div>City Has No Weather 🌤</div>
+        {% endfor %}
+
         <a href="{% url 'cities_update' city.id %}">Update Details</a> | 
         <a href="{% url 'cities_delete' city.id %}">DELETE This City</a>
     </div>

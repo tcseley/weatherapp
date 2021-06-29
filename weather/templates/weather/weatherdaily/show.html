@@ -1,0 +1,30 @@
+{% extends 'weather/base.html' %}
+{% block content %}
+
+<h1>Weather Details</h1>
+
+<div>
+    <div>
+        <span>{{ weatherdaily.city_id }}</span>
+        <p>Date: {{ weatherdaily.date }}</p>
+        <p>Sunrise: {{ weatherdaily.sunrise_time }}</p>
+        <p>Sunset: {{ weatherdaily.sunset_time }}</p>
+        <p>Last Updated: {{ weatherdaily.last_updated }}</p>
+    </div>
+    <div>
+        <div>
+            <span>{{ weatherdaily.city_id }}</span>
+            <p>Max Temp: {{ weatherdaily.max_temp }}</p>
+            {% for city in weatherdaily.city_set.all %}
+                <p>{{city.city_name}}</p>
+            {% empty %}
+                <p> 🌦 Climate happens ⛈</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <a href="{% url 'weatherdaily_update' weatherdaily.id %}">Edit</a>
+        <a href="{% url 'weatherdaily_delete' weatherdaily.id %}">Delete</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,18 +1,23 @@
 {% extends 'weather/base.html' %}
 {% load static %}
 {% block content %}
+
     <a href="/cities/create">Add a New Place</a>
     <hr />
     {% for city in cities %}
     <a href="/cities/{{ city.id }}">
     <p>City: {{ city.city_name }}</p>
+    </a>
+    <a href='/user/{{city.user.username}}'>
+        <p>Visited By: {{city.user.username}}</p>
+      </a>
     {% if city.country_id != 'America' %}
         <p>Country: {{ city.country_id }}</p>
     {% else %}
         <p>Country: America</p>
     {% endif%}
     <hr />
-    </a>
+    
     {% endfor %}
 
 {% endblock %}
