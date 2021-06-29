@@ -1,4 +1,6 @@
+{% extends 'weather/base.html' %}
 {% load static %}
+{% block content %}
 
 <!DOCTYPE html>
 <html>
@@ -11,14 +13,17 @@
     <h1>the forecast for these cities</h1>
     <hr />
     {% for city in cities %}
-    <p>City: {{ city.name }}</p>
-    {% if city.country != 'America' %}
-        <p>Country: {{ city.country }}</p>
+    <a href="/cities/{{ city.id }}">
+    <p>City: {{ city.city_name }}</p>
+    {% if city.country_id != 'America' %}
+        <p>Country: {{ city.country_id }}</p>
     {% else %}
         <p>Country: America</p>
     {% endif%}
     <hr />
+    </a>
     {% endfor %}
+{% endblock %}
     <footer>All Rights Reserved, Freezing in Texas 2021</footer>
   </body>
 </html>
