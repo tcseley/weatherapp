@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>weather forecast</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+  </head>
+  <body>
+    <h1>the forecast for these cities</h1>
+    <hr />
+    {% for city in cities %}
+    <p>City: {{ city.name }}</p>
+    {% if city.country != 'America' %}
+        <p>Country: {{ city.country }}</p>
+    {% else %}
+        <p>Country: America</p>
+    {% endif%}
+    <hr />
+    {% endfor %}
+    <footer>All Rights Reserved, Freezing in Texas 2021</footer>
+  </body>
+</html>
