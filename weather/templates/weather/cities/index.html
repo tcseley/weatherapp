@@ -1,16 +1,7 @@
 {% extends 'weather/base.html' %}
 {% load static %}
 {% block content %}
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>weather forecast</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
-  </head>
-  <body>
-    <h1>the forecast for these cities</h1>
+    <a href="/cities/create">Add a New Place</a>
     <hr />
     {% for city in cities %}
     <a href="/cities/{{ city.id }}">
@@ -23,7 +14,6 @@
     <hr />
     </a>
     {% endfor %}
+
 {% endblock %}
-    <footer>All Rights Reserved, Freezing in Texas 2021</footer>
-  </body>
-</html>
+   

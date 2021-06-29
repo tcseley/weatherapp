@@ -1,7 +1,20 @@
 
+{% extends 'weather/base.html' %}
+{% load static %}
+{% block content %}
+<a class="box" href="/cities">
+    <h1 class="title is-5">🔙 cities forecast</h1>
+</a>
+<div class="block">
+    <div class="box">
+        <span class="title is-2">{{ city.city_name }}</span>
+        <p> Latitude: {{ city.city_latitude }}</p>
+        <p> Longitude: {{ city.city_longitude }}</p>
+        <p> Zip Code: {{ city.zip_code }}</p>
+        <p> Country: {{ city.country_id}}</p>
 
-<h2> City: {{ city.city_name }}</h1>
-<p> Latitude: {{ city.city_latitude }}</p>
-<p> Longitude: {{ city.city_longitude }}</p>
-<p> Zip Code: {{ city.zip_code }}</p>
-<p> Country: {{ city.country_id}}</p>
+        <a href="{% url 'cities_update' city.id %}">Update Details</a> | 
+        <a href="{% url 'cities_delete' city.id %}">DELETE This City</a>
+    </div>
+</div>
+{% endblock %}

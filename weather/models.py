@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 class WeatherHourly(models.Model):
@@ -37,6 +38,7 @@ class City(models.Model):
     city_latitude = models.IntegerField(default=0)
     zip_code = models.IntegerField(default=0)
     country_id = models.CharField(max_length=25)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.city_name
